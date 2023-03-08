@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue前端实现将页面显示内容生成pdf文件的几种方法，html2canvas、dom-to-image、jspdf（带分页）基本使用以及介绍 | Zhangzuying&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="7F55weZDDc">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.594a61cd.css" as="style"><link rel="preload" href="/assets/js/app.fa4cb150.js" as="script"><link rel="preload" href="/assets/js/2.5c9a0c61.js" as="script"><link rel="preload" href="/assets/js/3.436c0527.js" as="script"><link rel="preload" href="/assets/js/16.c62596b2.js" as="script"><link rel="prefetch" href="/assets/js/10.f15c51f9.js"><link rel="prefetch" href="/assets/js/11.0cf410aa.js"><link rel="prefetch" href="/assets/js/12.c7a5f090.js"><link rel="prefetch" href="/assets/js/13.1f572f93.js"><link rel="prefetch" href="/assets/js/14.805b16eb.js"><link rel="prefetch" href="/assets/js/15.be5fa2ac.js"><link rel="prefetch" href="/assets/js/17.44572767.js"><link rel="prefetch" href="/assets/js/18.1241e0fb.js"><link rel="prefetch" href="/assets/js/19.5069162d.js"><link rel="prefetch" href="/assets/js/20.1b8b8411.js"><link rel="prefetch" href="/assets/js/21.c492948e.js"><link rel="prefetch" href="/assets/js/22.4a0eff32.js"><link rel="prefetch" href="/assets/js/23.26e7b0b7.js"><link rel="prefetch" href="/assets/js/24.fef5a47a.js"><link rel="prefetch" href="/assets/js/25.4c652b9d.js"><link rel="prefetch" href="/assets/js/26.6bfb13f6.js"><link rel="prefetch" href="/assets/js/27.95b350c1.js"><link rel="prefetch" href="/assets/js/4.7a4343a6.js"><link rel="prefetch" href="/assets/js/5.7e641334.js"><link rel="prefetch" href="/assets/js/6.b4504974.js"><link rel="prefetch" href="/assets/js/7.2d50f6bc.js"><link rel="prefetch" href="/assets/js/8.c111f01d.js"><link rel="prefetch" href="/assets/js/9.88e209db.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.594a61cd.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logoko2.png" alt="Zhangzuying's blog" class="logo"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/a61298/" class="nav-link">前端经典面试题</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="页面" class="dropdown-title"><a href="/ui/" class="link-title">页面</a> <span class="title" style="display:none;">页面</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/0a83b083bdf257cb/" class="nav-link">CSS</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li></ul></div></div><div class="nav-item"><a href="/more/" class="nav-link">更多</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/av.jpg"> <div class="blogger-info"><h3>zhangzuying</h3> <span>前端开发工程师</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/a61298/" class="nav-link">前端经典面试题</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="页面" class="dropdown-title"><a href="/ui/" class="link-title">页面</a> <span class="title" style="display:none;">页面</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/0a83b083bdf257cb/" class="nav-link">CSS</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li></ul></div></div><div class="nav-item"><a href="/more/" class="nav-link">更多</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript文章</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>jquery文章</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>vue文章</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/111fd6/" class="sidebar-link">pubsub-js使用方法介绍</a></li><li><a href="/pages/8c4869/" aria-current="page" class="active sidebar-link">vue前端实现将页面显示内容生成pdf文件的几种方法，html2canvas、dom-to-image、jspdf（带分页）基本使用以及介绍</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>electron</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>学习笔记</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06970110><div class="articleInfo" data-v-06970110><ul class="breadcrumbs" data-v-06970110><li data-v-06970110><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06970110></a></li> <li data-v-06970110><a href="/web/#前端" data-v-06970110>前端</a></li><li data-v-06970110><a href="/web/#vue文章" data-v-06970110>vue文章</a></li></ul> <div class="info" data-v-06970110><div title="作者" class="author iconfont icon-touxiang" data-v-06970110><a href="https://zhangzuying.github.io/" target="_blank" title="作者" class="beLink" data-v-06970110>zhangzuying</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06970110><a href="javascript:;" data-v-06970110>2023-03-01</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">vue前端实现将页面显示内容生成pdf文件的几种方法，html2canvas、dom-to-image、jspdf（带分页）基本使用以及介绍<!----></h1>  <div class="theme-vdoing-content content__default"><blockquote><p>实际开发需求：vue项目中，根据数据结构生成echarts图表组件，生成带有样式的图表以后，点击下载按钮，把图表以pdf格式的文件下载到本地
+实现思路：将vue界面的echarts组件生成图片，然后使用插件将生成的图片放入pdf中，再实现pdf文件的下载
+
+涉及框架以及插件：vue、echarts、html2canvas、dom-to-image、jspdf</p></blockquote> <h4 id="插件介绍"><a href="#插件介绍" class="header-anchor">#</a> 插件介绍：</h4> <p><strong>vue、echarts</strong> 不用多说，vue前端的框架，echarts用来根据数据生成的带有样式效果的图表；html2canvas与dom-to-image都是将界面上的dom生成图片。</p> <h4 id="html2canvas"><a href="#html2canvas" class="header-anchor">#</a> html2canvas</h4> <p>能够实现在用户浏览器端直接对整个或部分页面进行生成图片，主要是将选中的页面或者整个页面渲染成一个canvas图片，通过读取DOM并将不同的样式应用到这些元素上实现。可以通过获取HTML的某个元素，然后生成Canvas，从而生成图片。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>安装
+npm install --save html2canvas
+或 yarn add html2canvas
+引入
+import html2canvas from 'html2canvas';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>用法：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;div class=&quot;container&quot; id=&quot;myDom1&quot;&gt;
+  测试
+&lt;/div&gt;
+&lt;style&gt;
+.container {
+  width:100px;
+  height:100px;
+  background:red;
+  color: #ffffff;
+}
+&lt;/style&gt;
+methods(){
+  getImage(){
+    html2canvas(document.querySelector(&quot;#myDom1&quot;)).then(canvas =&gt; {
+        console.logo(canvas)
+        document.body.appendChild(canvas);
+        var dataUrl = canvas.toDataURL(&quot;image/png&quot;)
+    });
+  }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><table><thead><tr><th>参数名称</th> <th>类型</th> <th>默认值</th> <th>描述</th></tr></thead> <tbody><tr><td>allowTaint</td> <td>boolean</td> <td>false</td> <td>允许跨域</td></tr> <tr><td>background</td> <td>string</td> <td>#fff</td> <td>canvas的背景颜色，如果没有设定默认透明</td></tr> <tr><td>height</td> <td>number</td> <td>null</td> <td>canvas高度设定</td></tr> <tr><td>letterRendering</td> <td>boolean</td> <td>false</td> <td>在设置了字间距的时候有用</td></tr> <tr><td>logging</td> <td>boolean</td> <td>false</td> <td>输出信息</td></tr> <tr><td>proxy</td> <td>string</td> <td>undefined</td> <td>代理地址</td></tr> <tr><td>taintTest</td> <td>boolean</td> <td>true</td> <td>是否在渲染前测试图片</td></tr> <tr><td>timeout</td> <td>number</td> <td>0</td> <td>图片加载延迟，默认延迟为0，单位毫秒</td></tr> <tr><td>width</td> <td>number</td> <td>null</td> <td>canvas的宽度</td></tr> <tr><td>useCORS</td> <td>boolean</td> <td>false</td> <td>图片跨域问题</td></tr></tbody></table> <h4 id="dom-to-image"><a href="#dom-to-image" class="header-anchor">#</a> dom-to-image</h4> <p>它可以将任意DOM节点转换成用JavaScript编写的矢量（SVG）或光栅（PNG或JPEG）图像。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>安装
+npm install dom-to-image
+或 yarn add dom-to-image
+引入
+import domtoimage from 'dom-to-image';
+或 var domtoimage = require('dom-to-image');
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>基本用法：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div id=&quot;&quot;myDom&gt;
+    &lt;el-table
+      :data=&quot;tableData&quot;
+      style=&quot;width: 100%&quot;&gt;
+      &lt;el-table-column
+        prop=&quot;date&quot;
+        label=&quot;日期&quot;
+        width=&quot;180&quot;&gt;
+      &lt;/el-table-column&gt;
+      &lt;el-table-column
+        prop=&quot;name&quot;
+        label=&quot;姓名&quot;
+        width=&quot;180&quot;&gt;
+      &lt;/el-table-column&gt;
+      &lt;el-table-column
+        prop=&quot;address&quot;
+        label=&quot;地址&quot;&gt;
+      &lt;/el-table-column&gt;
+    &lt;/el-table&gt;
+    ......
+  &lt;/div&gt;
+&lt;/template&gt;
+methods(){
+  getDomToImage(){
+    let dom = document.getElementById('myDom');
+    domtoimage.toPng(dom).then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.body.appendChild(img);
+    })
+    .catch(function (error) {
+        console.error('wrong!', error);
+    });
+  }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br></div></div><p>获取一个png的blob：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>domtoimage.toBlob(document.getElementById('myDom')).then(function (blob) {
+        console.log(blob)
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h4 id="jspdf"><a href="#jspdf" class="header-anchor">#</a> jspdf</h4> <p>jsPDF 是一个使用 Javascript 语言生成 PDF 的开源库。你可以在 Firefox 插件，服务端脚本或是浏览器脚本中使用它。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>安装：
+npm install jspdf
+或 yarn add jspdf
+引入
+import jsPDF from &quot;jspdf&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>基本用法：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let pdf = new jsPDF('p', 'pt', 'a4);
+参数1：l：横向  p：纵向
+参数2：单位（&quot;pt&quot;，&quot;mm&quot;, &quot;cm&quot;, &quot;m&quot;, &quot;in&quot; or &quot;px&quot;）
+参数3：格式，默认为“a4”
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>常用方法：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>pdf.addPage()  在PDF文档中添加新页面，参数如下，也可以不设置，默认a4
+pdf.addImage()  将图像添加到PDF中
+pdf.save(`保存的PDF文件.pdf`); 保存为pdf格式的文件
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><blockquote><p>回到需求：vue项目中，根据数据结构生成echarts图表组件，生成带有样式的图表以后，点击下载按钮，把图表以pdf格式的文件下载到本地(带分页)，部分代码如下（思路）</p></blockquote> <h5 id="_1-使用html2canvas"><a href="#_1-使用html2canvas" class="header-anchor">#</a> 1.使用html2canvas</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div id=&quot;pdfDom&quot; ref=&quot;pdfDom&quot;&gt;
+    // 此处存放界面中显示的内容区域，生成pdf的内容区域......
+  &lt;/div&gt;
+&lt;/template&gt;
+
+methods(){
+  let node = document.getElementById('pdfDom');
+html2canvas(document.getElementById('pdfDom'), {
+				scale: 2
+			}).then(function (canvas) {
+				var pdfWidth = canvas.width;
+				var pdfHeight = canvas.height;
+				var pageHeight = pdfWidth / 592.28 * 841.89;
+				var leftHeight = pdfHeight;
+				var position = 0;
+				var imgWidth = 595.28;
+				var imgHeight = 595.28 / pdfWidth * pdfHeight;
+				var pageData = canvas.toDataURL(&quot;img/jpeg&quot;, 1.0);
+				var pdf = new jsPDF('', 'pt', 'a4');
+				// 判断打印dom高度是否需要分页，如果需要进行分页处理
+				if (leftHeight &lt; pageHeight) {
+					pdf.addImage(pageData, &quot;JPEG&quot;, 0, 0, imgWidth, imgHeight)
+				} else {
+					while (leftHeight &gt; 0) {
+						pdf.addImage(pageData, &quot;JPEG&quot;, 0, position, imgWidth, imgHeight)
+						leftHeight -= pageHeight
+						position -= 841.89
+						if (leftHeight &gt; 0) {
+							pdf.addPage()
+						}
+					}
+				}
+				const aLink = document.createElement('a')
+				document.body.appendChild(aLink)
+				const url = URL.createObjectURL(_this.toBlob(pdf.output('datauristring')))
+				aLink.href = url
+				let date = new Date()
+				let year = date.getFullYear()
+				let month = (date.getMonth() + 1).toString().padStart(2, 0)
+				let day = date.getDate().toString().padStart(2, 0)
+				let hour = date.getHours().toString().padStart(2, 0)
+				let minutes = date.getMinutes().toString().padStart(2, 0)
+				let seconds = date.getSeconds().toString().padStart(2, 0)
+				aLink.download = '保存的PDF文件-' + '.pdf'
+				aLink.click()
+				window.URL.revokeObjectURL(url)
+			})
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><h5 id="_2-使用dom-to-image"><a href="#_2-使用dom-to-image" class="header-anchor">#</a> 2.使用dom-to-image</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;template&gt;
+  &lt;div id=&quot;pdfDom&quot; ref=&quot;pdfDom&quot;&gt;
+    // 此处存放界面中显示的内容区域，生成pdf的内容区域......
+  &lt;/div&gt;
+&lt;/template&gt;
+
+methods(){
+  let node = document.getElementById('pdfDom');
+			domtoimage.toJpeg(node, {
+				width: node.clientWidth,
+				height: node.clientHeight,
+				cacheBust: true,
+				style: {
+					margin: 0,
+					background: '#fff',
+				}
+			}).then(function (dataUrl) {
+					console.log(node.clientWidth)
+					that.canvasWidth = node.clientWidth;
+					that.canvasHeight = node.clientHeight;
+					let imgObj = new Image()
+					imgObj.src = dataUrl;
+					document.documentElement.scrollTop = 0
+					//待图片加载完后，将其显示在canvas上
+					imgObj.onload = function (img) {
+						let canvas = document.getElementById(&quot;canvasDom&quot;);
+						console.log(canvas.width, canvas.height, 'canvas.width')
+						canvas.getContext(&quot;2d&quot;).drawImage(imgObj, 0, 0, that.canvasWidth, that.canvasHeight); //将图片绘制到canvas中
+						let contentWidth = canvas.width
+						let contentHeight = canvas.height
+						let pageHeight = contentWidth / 592.28 * 841.89
+						let leftHeight = contentHeight
+						let position = 0
+						let imgWidth = 595.28
+						let imgHeight = 592.28 / contentWidth * contentHeight
+						let pageData = canvas.toDataURL('image/jpeg', 1.0)
+						let PDF = new jsPDF('', 'pt', 'a4')
+						if (leftHeight &lt; pageHeight) {
+							PDF.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight) // 大于1页高度时分页
+						} else {
+							while (leftHeight &gt; 0) {
+								PDF.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+								leftHeight -= pageHeight
+								position -= 841.89
+								if (leftHeight &gt; 0) {
+									PDF.addPage()
+								}
+							}
+						}
+						const aLink = document.createElement('a')
+						document.body.appendChild(aLink)
+						const url = URL.createObjectURL(that.toBlob(PDF.output('datauristring')))
+						aLink.href = url
+						let date = new Date()
+						let year = date.getFullYear()
+						let month = (date.getMonth() + 1).toString().padStart(2, 0)
+						let day = date.getDate().toString().padStart(2, 0)
+						let hour = date.getHours().toString().padStart(2, 0)
+						let minutes = date.getMinutes().toString().padStart(2, 0)
+						let seconds = date.getSeconds().toString().padStart(2, 0)
+						aLink.download = '保存的PDF文件-' + '.pdf'
+						aLink.click()
+						window.URL.revokeObjectURL(url)
+					}
+					return dataUrl
+				})
+				.catch(function (error) {
+					console.error('wrong!', error);
+				});
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br></div></div></div></div>  <div class="page-edit"><div class="edit-link"><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/edit/master/docs/01.前端/30.vue文章/20.vue前端实现将页面显示内容生成pdf文件的几种方法，html2canvas、dom-to-image、jspdf（带分页）基本使用以及介绍.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="tags"><a href="/tags/?tag=pdf" title="标签">#pdf</a><a href="/tags/?tag=vue" title="标签">#vue</a></div> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/111fd6/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">pubsub-js使用方法介绍</div></a> <a href="/pages/77d224/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">electron中使用adm-zip将多个excel文件压缩进文件夹，使用XLSX以及XLSXStyle生成带样式excel文件</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/111fd6/" class="prev">pubsub-js使用方法介绍</a></span> <span class="next"><a href="/pages/77d224/">electron中使用adm-zip将多个excel文件压缩进文件夹，使用XLSX以及XLSXStyle生成带样式excel文件</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/a61298/"><div>
+            前端经典面试题
+            <span class="title-tag">
+              原创
+            </span></div></a> <span class="date">03-07</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/77d224/"><div>
+            electron中使用adm-zip将多个excel文件压缩进文件夹，使用XLSX以及XLSXStyle生成带样式excel文件
+            <span class="title-tag">
+              原创
+            </span></div></a> <span class="date">12-27</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/e39bbf/"><div>
+            高德地图或百度地图 api 根据select 选择地点 进行位置的显示
+            <!----></div></a> <span class="date">11-29</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:2515550548@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://zhangzuying.github.io/" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/#/playlist?id=755597173" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Theme by
+  <a href="https://zhangzuying.github.io/" target="_blank" title="本站主题">zhangzuying.github.io</a> 
+    | Copyright © 2023-2023
+    <span>zhangzuying</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.fa4cb150.js" defer></script><script src="/assets/js/2.5c9a0c61.js" defer></script><script src="/assets/js/3.436c0527.js" defer></script><script src="/assets/js/16.c62596b2.js" defer></script>
+  </body>
+</html>

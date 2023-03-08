@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>electron中使用adm-zip将多个excel文件压缩进文件夹，使用XLSX以及XLSXStyle生成带样式excel文件 | Zhangzuying&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="7F55weZDDc">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.594a61cd.css" as="style"><link rel="preload" href="/assets/js/app.fa4cb150.js" as="script"><link rel="preload" href="/assets/js/2.5c9a0c61.js" as="script"><link rel="preload" href="/assets/js/3.436c0527.js" as="script"><link rel="preload" href="/assets/js/17.44572767.js" as="script"><link rel="prefetch" href="/assets/js/10.f15c51f9.js"><link rel="prefetch" href="/assets/js/11.0cf410aa.js"><link rel="prefetch" href="/assets/js/12.c7a5f090.js"><link rel="prefetch" href="/assets/js/13.1f572f93.js"><link rel="prefetch" href="/assets/js/14.805b16eb.js"><link rel="prefetch" href="/assets/js/15.be5fa2ac.js"><link rel="prefetch" href="/assets/js/16.c62596b2.js"><link rel="prefetch" href="/assets/js/18.1241e0fb.js"><link rel="prefetch" href="/assets/js/19.5069162d.js"><link rel="prefetch" href="/assets/js/20.1b8b8411.js"><link rel="prefetch" href="/assets/js/21.c492948e.js"><link rel="prefetch" href="/assets/js/22.4a0eff32.js"><link rel="prefetch" href="/assets/js/23.26e7b0b7.js"><link rel="prefetch" href="/assets/js/24.fef5a47a.js"><link rel="prefetch" href="/assets/js/25.4c652b9d.js"><link rel="prefetch" href="/assets/js/26.6bfb13f6.js"><link rel="prefetch" href="/assets/js/27.95b350c1.js"><link rel="prefetch" href="/assets/js/4.7a4343a6.js"><link rel="prefetch" href="/assets/js/5.7e641334.js"><link rel="prefetch" href="/assets/js/6.b4504974.js"><link rel="prefetch" href="/assets/js/7.2d50f6bc.js"><link rel="prefetch" href="/assets/js/8.c111f01d.js"><link rel="prefetch" href="/assets/js/9.88e209db.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.594a61cd.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logoko2.png" alt="Zhangzuying's blog" class="logo"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/a61298/" class="nav-link">前端经典面试题</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="页面" class="dropdown-title"><a href="/ui/" class="link-title">页面</a> <span class="title" style="display:none;">页面</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/0a83b083bdf257cb/" class="nav-link">CSS</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li></ul></div></div><div class="nav-item"><a href="/more/" class="nav-link">更多</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/av.jpg"> <div class="blogger-info"><h3>zhangzuying</h3> <span>前端开发工程师</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/a61298/" class="nav-link">前端经典面试题</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="页面" class="dropdown-title"><a href="/ui/" class="link-title">页面</a> <span class="title" style="display:none;">页面</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/0a83b083bdf257cb/" class="nav-link">CSS</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li></ul></div></div><div class="nav-item"><a href="/more/" class="nav-link">更多</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript文章</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>jquery文章</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue文章</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>electron</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/77d224/" aria-current="page" class="active sidebar-link">electron中使用adm-zip将多个excel文件压缩进文件夹，使用XLSX以及XLSXStyle生成带样式excel文件</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>学习笔记</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06970110><div class="articleInfo" data-v-06970110><ul class="breadcrumbs" data-v-06970110><li data-v-06970110><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06970110></a></li> <li data-v-06970110><a href="/web/#前端" data-v-06970110>前端</a></li><li data-v-06970110><a href="/web/#electron" data-v-06970110>electron</a></li></ul> <div class="info" data-v-06970110><div title="作者" class="author iconfont icon-touxiang" data-v-06970110><a href="https://zhangzuying.github.io/" target="_blank" title="作者" class="beLink" data-v-06970110>zhangzuying</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06970110><a href="javascript:;" data-v-06970110>2022-12-27</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">electron中使用adm-zip将多个excel文件压缩进文件夹，使用XLSX以及XLSXStyle生成带样式excel文件<span class="title-tag">原创</span></h1>  <div class="theme-vdoing-content content__default"><blockquote><p>需求：electron环境下想要实现根据多个表生成多个Excel文件，打包存入文件夹内并压缩下载到本地。（实际场景描述：界面中有软件工程一班学生信息、软件工程二班学生信息、软件工程三班学生信息，上方有“一键生成”的按钮，点击时弹出文件存储位置选择框选择压缩包所要保存的位置，选择完成后点击保存后生成压缩包中存放一、二、三班三张对应班级学生信息Excel的文件。）
+注：生成的Excel文件需要按照对应模板进行显示（合并单元格、修改excel单元格的高度和宽度...）</p></blockquote> <h5 id="思路-使用electron中的dialog选择保存文件的位置-判断所选地址是否存在-如果存在使用xlsx、xlsxstyle进行文件的生成-然后使用adm-zip将所有文件存放在zip文件夹中保存到本地。"><a href="#思路-使用electron中的dialog选择保存文件的位置-判断所选地址是否存在-如果存在使用xlsx、xlsxstyle进行文件的生成-然后使用adm-zip将所有文件存放在zip文件夹中保存到本地。" class="header-anchor">#</a> 思路：使用electron中的dialog选择保存文件的位置，判断所选地址是否存在；如果存在使用XLSX、XLSXStyle进行文件的生成；然后使用adm-zip将所有文件存放在zip文件夹中保存到本地。</h5> <h6 id="_1-下载xlsx-xlsx-style-adm-zip"><a href="#_1-下载xlsx-xlsx-style-adm-zip" class="header-anchor">#</a> 1.下载xlsx xlsx-style adm-zip</h6> <div class="language- line-numbers-mode"><pre class="language-text"><code> npm i xlsx
+ npm i xlsx-style
+ npm i adm-zip
+ 或
+ yarn add xlsx
+ yarn add xlsx-style
+ yarn add adm-zip
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>**注意：**使用xlsx-style插件的时候需要简单修改下源码，第一种情况下会出现报错，第二种是为了可以调整excel单元格的行高。
+1）修改node_modules文件夹下的xlsx-style下的dist下的cpexcel.js文件
+<code>807行：var cpt = cptable;</code>
+2）修改xlsx-style文件夹下面的xlsx.js文件 替换write_ws_xml_data以下方法</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// xlsx-style版本0.8.13
+// xlsx版本0.14.1 
+//这是xlsx-style文件中的xlsx.js的需要修改的代码，是从xlsx文件夹中的xlsx.js中复制出来的
+// write_ws_xml_data找到找个方法名字，全部替换
+// 把xlsx中能修改高度的代码复制到xlsx-style中
+var DEF_PPI = 96, PPI = DEF_PPI;
+function px2pt(px) { return px * 96 / PPI; }
+function pt2px(pt) { return pt * PPI / 96; }
+function write_ws_xml_data(ws, opts, idx, wb) {
+	var o = [], r = [], range = safe_decode_range(ws['!ref']), cell=&quot;&quot;, ref, rr = &quot;&quot;, cols = [], R=0, C=0, rows = ws['!rows'];
+	var dense = Array.isArray(ws);
+	var params = ({r:rr}), row, height = -1;
+	for(C = range.s.c; C &lt;= range.e.c; ++C) cols[C] = encode_col(C);
+	for(R = range.s.r; R &lt;= range.e.r; ++R) {
+		r = [];
+		rr = encode_row(R);
+		for(C = range.s.c; C &lt;= range.e.c; ++C) {
+			ref = cols[C] + rr;
+			var _cell = dense ? (ws[R]||[])[C]: ws[ref];
+			if(_cell === undefined) continue;
+			if((cell = write_ws_xml_cell(_cell, ref, ws, opts, idx, wb)) != null) r.push(cell);
+		}
+		if(r.length &gt; 0 || (rows &amp;&amp; rows[R])) {
+			params = ({r:rr});
+			if(rows &amp;&amp; rows[R]) {
+				row = rows[R];
+				if(row.hidden) params.hidden = 1;
+				height = -1;
+				if (row.hpx) height = px2pt(row.hpx);
+				else if (row.hpt) height = row.hpt;
+				if (height &gt; -1) { params.ht = height; params.customHeight = 1; }
+				if (row.level) { params.outlineLevel = row.level; }
+			}
+			o[o.length] = (writextag('row', r.join(&quot;&quot;), params));
+		}
+	}
+	if(rows) for(; R &lt; rows.length; ++R) {
+		if(rows &amp;&amp; rows[R]) {
+			params = ({r:R+1});
+			row = rows[R];
+			if(row.hidden) params.hidden = 1;
+			height = -1;
+			if (row.hpx) height = px2pt(row.hpx);
+			else if (row.hpt) height = row.hpt;
+			if (height &gt; -1) { params.ht = height; params.customHeight = 1; }
+			if (row.level) { params.outlineLevel = row.level; }
+			o[o.length] = (writextag('row', &quot;&quot;, params));
+		}
+	}
+	return o.join(&quot;&quot;);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br></div></div><h6 id="_2-可以在utils下新建一个js文件用于写入xlsx以及xlsx-style相关方法"><a href="#_2-可以在utils下新建一个js文件用于写入xlsx以及xlsx-style相关方法" class="header-anchor">#</a> 2.可以在utils下新建一个js文件用于写入xlsx以及xlsx-style相关方法</h6> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 导出为excel
+import XLSX from 'xlsx'
+import XLSXStyle from 'xlsx-style'
+
+export function exportExcel(filename, data) {
+  var sheet_name = 'Sheet1'
+  var work_book = XLSX.utils.book_new()
+  var sheet = XLSX.utils.aoa_to_sheet(data)
+  XLSX.utils.book_append_sheet(work_book, sheet, sheet_name)
+  XLSXStyle.writeFile(work_book, filename) //导出Excel
+}
+// 将workbook装化成ArrayBuffer对象
+export function workbook2ArrayBuffer(workbook) {
+  var wopts = {
+    bookType: 'xlsx',
+    bookSST: false,
+    type: 'binary',
+  }
+  var wbout = XLSXStyle.write(workbook, wopts)
+  // 将字符串转ArrayBuffer
+  function s2ab(s) {
+    var buf = new ArrayBuffer(s.length)
+    var view = new Uint8Array(buf)
+    for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) &amp; 0xff
+    return buf
+  }
+  return s2ab(wbout)
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><h6 id="_3-在要进行一键生成的界面进行相关逻辑的编写。"><a href="#_3-在要进行一键生成的界面进行相关逻辑的编写。" class="header-anchor">#</a> 3.在要进行一键生成的界面进行相关逻辑的编写。</h6> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;button @click='ClickGenerate'&gt;一键生成&lt;/button&gt;
+...
+...
+methods: {
+    // 一键生成按钮方法
+	ClickGenerate(){
+            const fs = require('fs')
+            let zipName = '软件工程学生信息.zip'
+            // 弹出dialog选择保存文件的位置
+            const { dialog } = require(&quot;electron&quot;).remote
+            let options = {
+                title: &quot;软件工程学生信息&quot;, //下载文件名称
+                defaultPath: zipName //下载文件title
+            }
+            dialog.showSaveDialog(options, (result) =&gt; {
+                if (!result) {
+                    this.$message.warning('下载任务已取消')
+                    return
+                }
+                let path = getDirectory(result)
+                if (!fs.existsSync(path)) {
+                    this.$message.warning('所选路径不存在！')
+                    return
+                }
+                // 准备下载zip文件
+                this.downloadZip(result)
+            })
+	},
+	// 导出涉密人员zip
+        async downloadZip(savePath) {
+            // 准备生成zip
+            let AdmZip = require(&quot;adm-zip&quot;)
+            let zip = new AdmZip()
+            zip.writeZip(savePath)
+            //#region 
+            // 生成软件工程一班学生信息并放入zip包中
+            let soft1buffer = this.creatSoftbuffer('1')
+            if (soft1buffer) {
+                zip.addFile('软件工程一班学生信息' + &quot;.xlsx&quot;, soft1buffer, &quot;&quot;)
+            }
+            // #endregion
+            zip.writeZip(savePath, (error) =&gt; {
+                if (error) {
+                    this.$message.error('[下载异常]' + error.message)
+                    return
+                }
+                this.$message.success('下载已完成')
+            })
+        },
+	// 生成excel文件流
+	creatSoftbuffer(name) {
+            let list = []
+            let date = new Date()
+            let Y = date.getFullYear() + '-';
+            let M = (date.getMonth() + 1 &lt; 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            let D = date.getDate() + ' ';
+            let dqsj = Y + M + D // 获取当前时间
+            let soft1Datas = [
+                { id: 1, name: &quot;张三&quot;, age: '24', address: '哈尔滨市南岗区', grade: '软件一班' },
+                { id: 2, name: &quot;里斯&quot;, age: '22', address: '哈尔滨市呼兰区', grade: '软件一班' },
+                { id: 3, name: &quot;王二&quot;, age: '21', address: '哈尔滨市松北区', grade: '软件一班' },
+                ...
+	 	] // 此处数据可从后台获取
+            switch (name) {
+                case '1':
+                    list.push([&quot;软件工程一班学生信息&quot;]) //确定列名
+                    list.push([&quot;统计时间：&quot;, dqsj, &quot;&quot;, &quot;&quot;, &quot;&quot;]) //确定列名
+                    list.push([&quot;序号&quot;, &quot;姓名&quot;, &quot;年龄&quot;, &quot;地址&quot;, &quot;年级&quot;]) //确定列名
+                    let lock1 = 0
+                    for (let i in soft1Datas) { //每一行的值
+                        lock1 = lock1 + 1
+                        let item = soft1Datas[i]
+                        let column = [lock1, item[&quot;name&quot;], item[&quot;age&quot;], item[&quot;address&quot;], item[&quot;grade&quot;]]
+                        list.push(column)
+                    }
+                    //Excel sheet页的名称
+                    var sheet_name = &quot;软件工程一班学生信息&quot;
+                    var sum = 5 // 列的数量，根据自身项目进行数据的更改
+                    break
+                default:
+                    console.log(0)
+            }
+            var sheet = XLSX.utils.aoa_to_sheet(list)
+            // 设置列宽（这里用到列的数量是用来设置不同列的不同宽度的）
+            let counts = soft1Datas.length + 5
+            sheet['!cols'] = []
+            sheet['!rows'] = []
+            for (let i = 1; i &lt; sum; i++) {
+                sheet['!cols'].push({ wpx: 150 }) // 设置列宽
+            }
+            for (let j = 1; j &lt; counts; j++) {
+                sheet['!rows'].push({ hpx: 14 }) // 设置列高
+            }
+            sheet['!rows'][0].hpx = 35
+            sheet['!rows'][1].hpx = 20
+            sheet['!rows'][2].hpx = 20
+            sheet['!rows'][3].hpx = 20
+            // 所有设置边框字体水平居中等样式
+            for (let key in sheet) {
+                if (sheet[key] instanceof Object) {
+                    sheet[key].s = {
+                        alignment: {
+                            horizontal: 'center', // 水平居中
+                            vertical: 'center' // 垂直居中
+                        },
+                        font: {
+                            sz: 11, // 字号
+                            name: '宋体' // 字体
+                        },
+                        border: {  // 边框
+                            top: {
+                                style: 'thin'
+                            },
+                            bottom: {
+                                style: 'thin'
+                            },
+                            left: {
+                                style: 'thin'
+                            },
+                            right: {
+                                style: 'thin'
+                            }
+                        }
+                    }
+                }
+            }
+            // 标题样式修改
+            sheet.A1.s = {
+                font: {
+                    name: '宋体',
+                    sz: 16, // 字号
+                    bold: true,
+                },
+                alignment: {
+                    horizontal: 'center', // 水平居中
+                    vertical: 'center' // 垂直居中
+                }
+            }
+            sheet['!merges'] = [
+                { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } }
+            ];
+            //新建book
+            var work_book = XLSX.utils.book_new()
+            //将数据添加到工作薄
+            XLSX.utils.book_append_sheet(work_book, sheet, sheet_name)
+            const workbookArrayBuffer = workbook2ArrayBuffer(work_book)
+            //arrayBuffer转Buffer
+            var buf = new Buffer(workbookArrayBuffer.byteLength)
+            var view = new Uint8Array(workbookArrayBuffer)
+            for (var i = 0; i &lt; buf.length; ++i) {
+                buf[i] = view[i]
+            }
+            return buf
+        }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br></div></div></div></div>  <div class="page-edit"><div class="edit-link"><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/edit/master/docs/01.前端/32.electron/01.electron中使用adm-zip将多个excel文件压缩进文件夹，使用XLSX以及XLSXStyle生成带样式excel文件.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="tags"><a href="/tags/?tag=electron" title="标签">#electron</a><a href="/tags/?tag=zip" title="标签">#zip</a><a href="/tags/?tag=excel" title="标签">#excel</a></div> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/8c4869/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">vue前端实现将页面显示内容生成pdf文件的几种方法，html2canvas、dom-to-image、jspdf（带分页）基本使用以及介绍</div></a> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/8c4869/" class="prev">vue前端实现将页面显示内容生成pdf文件的几种方法，html2canvas、dom-to-image、jspdf（带分页）基本使用以及介绍</a></span> <!----></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/a61298/"><div>
+            前端经典面试题
+            <span class="title-tag">
+              原创
+            </span></div></a> <span class="date">03-07</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/8c4869/"><div>
+            vue前端实现将页面显示内容生成pdf文件的几种方法，html2canvas、dom-to-image、jspdf（带分页）基本使用以及介绍
+            <!----></div></a> <span class="date">03-01</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/e39bbf/"><div>
+            高德地图或百度地图 api 根据select 选择地点 进行位置的显示
+            <!----></div></a> <span class="date">11-29</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:2515550548@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://zhangzuying.github.io/" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/#/playlist?id=755597173" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Theme by
+  <a href="https://zhangzuying.github.io/" target="_blank" title="本站主题">zhangzuying.github.io</a> 
+    | Copyright © 2023-2023
+    <span>zhangzuying</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.fa4cb150.js" defer></script><script src="/assets/js/2.5c9a0c61.js" defer></script><script src="/assets/js/3.436c0527.js" defer></script><script src="/assets/js/17.44572767.js" defer></script>
+  </body>
+</html>
