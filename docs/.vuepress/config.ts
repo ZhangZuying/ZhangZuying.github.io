@@ -135,7 +135,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
 
     // pageStyle: 'line', // 页面风格，可选值：'card'卡片 | 'line' 线（未设置bodyBgImg时才生效）， 默认'card'。 说明：card时背景显示灰色衬托出卡片样式，line时背景显示纯色，并且部分模块带线条边框
-    // bodyBgImg: '/img/background1.jpg',
+    // bodyBgImg: '/img/bk3.jpg',
     // bodyBgImg: [
     //   // '/img/bkg2.jpg',
     //   'https://t7.baidu.com/it/u=3435942975,1552946865&fm=193&f=GIF'
