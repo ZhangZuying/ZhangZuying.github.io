@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端开发中的令人膛目结舌的代码技巧 | Zhangzuying&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="7F55weZDDc">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.af091722.css" as="style"><link rel="preload" href="/assets/js/app.abd1a005.js" as="script"><link rel="preload" href="/assets/js/2.c36147f4.js" as="script"><link rel="preload" href="/assets/js/3.7ca67a2c.js" as="script"><link rel="preload" href="/assets/js/20.984db5be.js" as="script"><link rel="prefetch" href="/assets/js/10.47a21556.js"><link rel="prefetch" href="/assets/js/11.3cb97d1c.js"><link rel="prefetch" href="/assets/js/12.04084d07.js"><link rel="prefetch" href="/assets/js/13.fe1c6fac.js"><link rel="prefetch" href="/assets/js/14.ba86580b.js"><link rel="prefetch" href="/assets/js/15.8bbb866c.js"><link rel="prefetch" href="/assets/js/16.d265343a.js"><link rel="prefetch" href="/assets/js/17.fdfd0267.js"><link rel="prefetch" href="/assets/js/18.e4a0f007.js"><link rel="prefetch" href="/assets/js/19.23a735b8.js"><link rel="prefetch" href="/assets/js/21.c89aa31f.js"><link rel="prefetch" href="/assets/js/22.8787131f.js"><link rel="prefetch" href="/assets/js/23.2f3ea82d.js"><link rel="prefetch" href="/assets/js/24.568aab53.js"><link rel="prefetch" href="/assets/js/25.991da3f6.js"><link rel="prefetch" href="/assets/js/26.e0ab6cab.js"><link rel="prefetch" href="/assets/js/27.061b9cb2.js"><link rel="prefetch" href="/assets/js/28.6c8ae5e9.js"><link rel="prefetch" href="/assets/js/29.96b8311e.js"><link rel="prefetch" href="/assets/js/30.fe000f2c.js"><link rel="prefetch" href="/assets/js/31.74cee4e1.js"><link rel="prefetch" href="/assets/js/32.56c57b4e.js"><link rel="prefetch" href="/assets/js/33.99f4ec8d.js"><link rel="prefetch" href="/assets/js/34.e37484a0.js"><link rel="prefetch" href="/assets/js/35.8d168bcd.js"><link rel="prefetch" href="/assets/js/36.96d1780c.js"><link rel="prefetch" href="/assets/js/37.6c854c48.js"><link rel="prefetch" href="/assets/js/38.0d472341.js"><link rel="prefetch" href="/assets/js/39.228d83d2.js"><link rel="prefetch" href="/assets/js/4.d230ea4a.js"><link rel="prefetch" href="/assets/js/40.89289509.js"><link rel="prefetch" href="/assets/js/5.02574a9f.js"><link rel="prefetch" href="/assets/js/6.99cd347e.js"><link rel="prefetch" href="/assets/js/7.065a8ea4.js"><link rel="prefetch" href="/assets/js/8.bd877b28.js"><link rel="prefetch" href="/assets/js/9.da27d2d7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.af091722.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logoko2.png" alt="Zhangzuying's blog" class="logo"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/a61298/" class="nav-link">前端经典面试题</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="页面" class="dropdown-title"><a href="/ui/" class="link-title">页面</a> <span class="title" style="display:none;">页面</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/3043ba/" class="nav-link">CSS</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li></ul></div></div><div class="nav-item"><a href="/more/" class="nav-link">更多</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/av.jpg"> <div class="blogger-info"><h3>zhangzuying</h3> <span>前端开发工程师</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/web/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/a61298/" class="nav-link">前端经典面试题</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="页面" class="dropdown-title"><a href="/ui/" class="link-title">页面</a> <span class="title" style="display:none;">页面</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/8309a5b876fc95e3/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/3043ba/" class="nav-link">CSS</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="技术" class="dropdown-title"><a href="/technology/" class="link-title">技术</a> <span class="title" style="display:none;">技术</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a7ee40fc232253e/" class="nav-link">技术文档</a></li></ul></div></div><div class="nav-item"><a href="/more/" class="nav-link">更多</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JavaScript文章</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/a61298/" class="sidebar-link">前端经典面试题</a></li><li><a href="/pages/60f15a/" class="sidebar-link">JS高级面试题思路（装箱和拆箱、栈和堆、js中sort()方法、.js中Date对象中的getMounth() 需要注意的、开发中编码和解码使用场景有哪些）</a></li><li><a href="/pages/c373ee/" class="sidebar-link">前端常用场景以及插件总结</a></li><li><a href="/pages/5cfb96/" class="sidebar-link">File、FileReader、Base64、Blob基本使用以及Buffer、ArrayBuffer之间的转换</a></li><li><a href="/pages/32576a/" class="sidebar-link">前端XSS攻击场景与Vue.js处理XSS的方法：vue-xss</a></li><li><a href="/pages/d5e1c8/" aria-current="page" class="active sidebar-link">前端开发中的令人膛目结舌的代码技巧</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/d5e1c8/#前端开发中的令人膛目结舌的代码技巧" class="sidebar-link">前端开发中的令人膛目结舌的代码技巧</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>jquery文章</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue文章</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>electron</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ES6</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06970110><div class="articleInfo" data-v-06970110><ul class="breadcrumbs" data-v-06970110><li data-v-06970110><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06970110></a></li> <li data-v-06970110><a href="/web/#前端" data-v-06970110>前端</a></li><li data-v-06970110><a href="/web/#JavaScript文章" data-v-06970110>JavaScript文章</a></li></ul> <div class="info" data-v-06970110><div title="作者" class="author iconfont icon-touxiang" data-v-06970110><a href="https://zhangzuying.github.io/" target="_blank" title="作者" class="beLink" data-v-06970110>zhangzuying</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06970110><a href="javascript:;" data-v-06970110>2024-03-21</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">前端开发中的令人膛目结舌的代码技巧<!----></h1>  <div class="theme-vdoing-content content__default"><h2 id="前端开发中的令人膛目结舌的代码技巧"><a href="#前端开发中的令人膛目结舌的代码技巧" class="header-anchor">#</a> 前端开发中的令人膛目结舌的代码技巧</h2> <p>在前端开发中，我们经常会遇到一些令人膛目结舌的代码技巧。这些技巧可以帮助我们更高效地解决问题，提高代码的可读性和可维护性。本文将介绍一些在前端平时的项目开发中常用的令人膛目结舌的代码技巧，并用实际场景和代码举例说明。
+</p> <blockquote><p>代码技巧</p></blockquote> <p><strong>1. 使用三元运算符简化条件判断</strong>
+三元运算符是一种简洁的表达式，它可以根据条件返回不同的值。在前端开发中，我们经常使用三元运算符来简化条件判断。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 使用三元运算符判断一个变量是否为空  
+const message = userInput ? '输入有效' : '输入为空';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>2. 使用数组方法简化循环操作</strong>
+数组方法是一组用于操作数组的方法，如map、filter、reduce等。在前端开发中，我们经常使用数组方法来简化循环操作。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 使用map方法将数组中的每个元素乘以2  
+const numbers = [1, 2, 3, 4, 5];  
+const doubledNumbers = numbers.map(number =&gt; number * 2);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><strong>3. 判断一个变量是否为空</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 简单写法  
+if (variable === null || variable === undefined) {  
+  // 变量为空的处理逻辑  
+}  
+  
+// 优化写法  
+if (!variable) {  
+  // 变量为空的处理逻辑  
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><strong>4. 数组去重</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 简单写法  
+let uniqueArray = [...new Set(array)];  
+  
+// 优化写法  
+let uniqueArray = [...array.reduce((set, item) =&gt; set.add(item), new Set())];
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>5. 循环遍历数组并执行异步操作</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 简单写法  
+for (let i = 0; i &lt; array.length; i++) {  
+  (async function(i) {  
+    await doSomethingAsync(array[i], i);  
+  })(i);  
+}  
+  
+// 优化写法  
+array.forEach((item, index) =&gt; {  
+  doSomethingAsync(item, index).then(() =&gt; {  
+    // 处理异步操作完成的逻辑  
+  });  
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p><strong>6. 使用防抖和节流优化高频事件处理</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 简单写法（防抖）  
+function debounce(fn, delay) {  
+  let timer = null;  
+  return function() {  
+    let context = this;  
+    let args = arguments;  
+    if (timer) {  
+      clearTimeout(timer);  
+    }  
+    timer = setTimeout(() =&gt; {  
+      fn.apply(context, args);  
+    }, delay);  
+  };  
+}  
+  
+// 简单写法（节流）  
+function throttle(fn, delay) {  
+  let lastCall = 0;  
+  return function() {  
+    let now = Date.now();  
+    if (now - lastCall &lt; delay) {  
+      return;  
+    }  
+    lastCall = now;  
+    return fn.apply(this, arguments);  
+  };  
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p><strong>7. 避免使用 == 运算符进行比较</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 简单写法  
+if (value == 'someValue') {  
+  // 处理逻辑  
+}  
+  
+// 优化写法  
+if (value === 'someValue') {  
+  // 处理逻辑  
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><strong>8.使用 includes 方法判断一个数组是否包含某个元素</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 简单写法  
+if (array.indexOf(item) !== -1) {  
+  // 处理逻辑  
+}  
+  
+// 优化写法  
+if (array.includes(item)) {  
+  // 处理逻辑  
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><strong>9. 使用 map 方法代替循环遍历数组并执行操作</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 简单写法  
+let resultArray = [];  
+for (let i = 0; i &lt; array.length; i++) {  
+  resultArray.push(doSomething(array[i]));  
+}  
+  
+// 优化写法  
+let resultArray = array.map(doSomething);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>10. 使用事件代理来减少事件处理器的数量</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 简单写法  
+document.getElementById('myElement').addEventListener('click', handleClick);  
+  
+// 优化写法  
+document.getElementById('myElement').addEventListener('click', function(event) {  
+  handleClick.call(event.target);  
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><strong>11. 使用闭包创建私有变量</strong>
+闭包是一种特殊的函数，它能够访问到外部函数的变量。在前端开发中，我们经常使用闭包来创建私有变量。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 创建一个私有变量并返回一个访问该变量的函数  
+function createCounter() {  
+  let count = 0;  
+  return {  
+    increment: function() {  
+      count++;  
+    },  
+    getCount: function() {  
+      return count;  
+    }  
+  };  
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p><strong>12. 使用事件代理简化事件处理</strong>
+事件代理是一种利用事件冒泡机制，通过指定一个公共的父元素来监听所有子元素的事件，从而简化事件处理的方法。在前端开发中，我们经常使用事件代理来简化事件处理。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 在父元素上监听子元素的事件，并执行相应的处理函数  
+$('parent-element').on('click', 'child-element', function() {  
+  // 处理点击事件的逻辑  
+});
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><strong>13. 使用模块化提高代码可维护性</strong>
+模块化是一种将代码拆分成独立模块的方法，每个模块都有自己的作用域和生命周期。在前端开发中，我们经常使用模块化来提高代码的可维护性。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 定义一个模块，并导出其中的函数或对象  
+function myModule() {  
+  // 模块中的逻辑代码  
+  function myFunction() {  
+    // 函数逻辑代码  
+  }  
+  return {  
+    myFunction: myFunction,  
+  };  
+}  
+module.exports = myModule; // 将模块导出供其他文件使用
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><strong>14. 使用ES6的箭头函数和解构赋值</strong>
+箭头函数和解构赋值是ES6新增的语法，它们可以让代码更加简洁和易读。在实际项目中，我们经常会遇到需要对数组进行处理的情况，比如筛选出符合条件的元素。使用箭头函数和解构赋值可以让我们的代码更加简洁和易读，如下所示：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 传统写法
+const numbers = [1, 2, 3, 4, 5];
+const filteredNumbers = numbers.filter(function (num) {
+  return num &gt; 3;
+});
+
+// 使用箭头函数和解构赋值
+const numbers = [1, 2, 3, 4, 5];
+const filteredNumbers = numbers.filter(num =&gt; num &gt; 3);
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p><strong>15. 使用模板字符串拼接字符串</strong>
+在前端开发中，我们经常需要拼接字符串来生成动态内容，传统的做法是使用加号来连接字符串。而使用ES6新增的模板字符串可以让拼接字符串更加简洁和易读，如下所示：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 传统写法
+const name = 'Alice';
+const greeting = 'Hello, ' + name + '!';
+
+// 使用模板字符串
+const name = 'Alice';
+const greeting = `Hello, ${name}!`;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>16. 使用async/await处理异步操作</strong>
+在前端开发中，我们经常需要处理异步操作，比如发送网络请求或者操作DOM元素。传统的做法是使用回调函数或者Promise，而使用ES7新增的async/await可以让异步操作更加简洁和易读，如下所示：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 传统写法
+fetch('https://api.example.com/data')
+  .then(response =&gt; response.json())
+  .then(data =&gt; {
+    console.log(data);
+  })
+  .catch(error =&gt; {
+    console.error(error);
+  });
+
+// 使用async/await
+try {
+  const response = await fetch('https://api.example.com/data');
+  const data = await response.json();
+  console.log(data);
+} catch (error) {
+  console.error(error);
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div></div></div>  <div class="page-edit"><div class="edit-link"><a href="https://github.com/xugaoyi/vuepress-theme-vdoing/edit/master/docs/01.前端/25.JavaScript文章/14.前端开发中的令人膛目结舌的代码技巧.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2024/03/21, 13:36:13</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/32576a/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">前端XSS攻击场景与Vue.js处理XSS的方法：vue-xss</div></a> <a href="/pages/d2f5a0/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">网站播放音频MP3提示音</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/32576a/" class="prev">前端XSS攻击场景与Vue.js处理XSS的方法：vue-xss</a></span> <span class="next"><a href="/pages/d2f5a0/">网站播放音频MP3提示音</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/32576a/"><div>
+            前端XSS攻击场景与Vue.js处理XSS的方法：vue-xss
+            <!----></div></a> <span class="date">03-21</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/3cc9eb/"><div>
+            vue前端预览pdf并加水印、ofd文件，控制打印、下载、另存，vue-pdf的使用方法以及在开发中所踩过的坑合集
+            <span class="title-tag">
+              原创
+            </span></div></a> <span class="date">06-21</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/a61298/"><div>
+            前端经典面试题
+            <span class="title-tag">
+              原创
+            </span></div></a> <span class="date">03-07</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:2515550548@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://zhangzuying.github.io/" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/#/playlist?id=755597173" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Theme by
+  <a href="https://zhangzuying.github.io/" target="_blank" title="本站主题">zhangzuying.github.io</a> 
+    | Copyright © 2023-2024
+    <span>zhangzuying</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.abd1a005.js" defer></script><script src="/assets/js/2.c36147f4.js" defer></script><script src="/assets/js/3.7ca67a2c.js" defer></script><script src="/assets/js/20.984db5be.js" defer></script>
+  </body>
+</html>
